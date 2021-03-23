@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Cantilever Beams
+{% endblock %}
+
+{% block main %}
+
+<br>
+
+<div class = heading>
+    <h4>Cantilever Beams</h4>
+    <p>Select a loading diagram to be directed to the appropriate calculations.</p>
+</div>
+
+<div class = "table">
+    <div class="row">
+        <a href="/cantilever1">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/12 - Cantilever - Uniformly Distributed Load.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/cantilever2">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/13 - Cantilever - Concentrated Load at Free End.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Free End</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/cantilever3">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/14 - Cantilever - Concentrated Load at Any Point.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Any Point</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

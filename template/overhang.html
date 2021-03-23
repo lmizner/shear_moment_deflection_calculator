@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Overhanging Beams
+{% endblock %}
+
+{% block main %}
+
+<br>
+
+<div class = heading>
+    <h4>Overhanging Beams</h4>
+    <p>Select a loading diagram to be directed to the appropriate calculations.</p>
+</div>
+
+<div class = "table">
+    <div class="row">
+        <a href="/overhang1">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/18 - Overhang - Uniformly Distributed Load.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/overhang2">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/19 - Overhang - Uniformly Distributed Load on Overhang.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load on Overhang</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/overhang3">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/20 - Overhang - Concentrated Load at End of Overhang.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at End of Overhang</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row">
+        <a href="/overhang4">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/21 - Overhang - Concentrated Load at Any Point Between Supports.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Any Point Between Supports</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/overhang5">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/22 - Overhang - Unequal Overhangs - Uniformly Distributed Load.png" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Unequal Overhangs - Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

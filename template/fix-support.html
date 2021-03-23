@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Fix-Support Beams
+{% endblock %}
+
+{% block main %}
+
+<br>
+
+<div class = heading>
+    <h4>Fixed at One End & Supported at Other End</h4>
+    <p>Select a loading diagram to be directed to the appropriate calculations.</p>
+</div>
+
+<div class = "table">
+    <div class="row">
+        <a href="/fix-support1">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/15 - Fix:Support - Uniformly Distributed Load.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/fix-support2">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/16 - Fix:Support - Concentrated Load at Center.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Center</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/fix-support3">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/17 - Fix:Support - Concentrated Load at Any Point.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Any Point</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

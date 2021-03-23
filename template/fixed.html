@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Fixed Beams
+{% endblock %}
+
+{% block main %}
+
+<br>
+
+<div class = heading>
+    <h4>Fixed at Both Ends</h4>
+    <p>Select a loading diagram to be directed to the appropriate calculations.</p>
+</div>
+
+<div class = "table">
+    <div class="row">
+        <a href="/fixed1">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/23 - Fixed - Uniformly Distributed Load.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/fixed2">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/24 - Fixed - Concentrated Load at Center.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Center</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/fixed3">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/25 - Fixed - Concentrated Load at Any Point.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Any Point</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

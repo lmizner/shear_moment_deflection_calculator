@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Continuous - 2
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Continuous Beam</h3>
+<h4>Two Equal Spans - Concentrated Load at Center of One Span</h4>
+
+<img src="/static/Image1-27.jpg" alt="Avatar" class="image2" width="300" height="400" display="inline-block">
+
+<br><br>
+
+<form>
+
+    <label for="P" class="inlinelabel">P=</label>
+    <input autofocus class="calc1" name="P" id="P" type="number">
+    <label for="P" class="inlinelabel">lb</label>
+
+    <br><br>
+
+    <label for="l" class="inlinelabel">l=</label>
+    <input class="calc1" name="l" id="l" type="number">
+    <label for="l" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <input type="button" onclick="calc_1()" value="Calculate">
+
+    <br><br>
+
+    <p id="solution1"></p>
+    <p id="solution2"></p>
+    <p id="solution3"></p>
+    <p id="solution4"></p>
+    <p id="solution5"></p>
+    <p id="solution6"></p>
+
+</form>
+
+<script>
+    // Pull values from user text input and calculate
+    function calc_1() {
+        var P=document.getElementById("P").value;
+        var l=document.getElementById("l").value;
+
+        var r_1=(13/32)*P;
+        var R_1=r_1.toFixed(2);
+
+        var r_2=(11/16)*P;
+        var R_2=r_2.toFixed(2);
+
+        var r_3=(-3/32)*P;
+        var R_3=r_3.toFixed(2);
+
+        var v_2=(19/32)*P;
+        var V_2=v_2.toFixed(2);
+
+        var m_max=(13/64)*P*l;
+        var M_max=m_max.toFixed(2);
+
+        var m_1=(3/32)*P*l;
+        var M_1=m_1.toFixed(2);
+
+        // Display Calculation Results
+        document.getElementById("solution1").innerHTML = "Shear (R1) = " + R_1 + " lbs";
+        document.getElementById("solution2").innerHTML = "Shear (R2) = " + R_2 + " lbs";
+        document.getElementById("solution3").innerHTML = "Shear (R3) = " + R_3 + " lbs";
+        document.getElementById("solution4").innerHTML = "Shear (V2) = " + V_2 + " lbs";
+        document.getElementById("solution5").innerHTML = "Max Moment = " + M_max + " lb*ft";
+        document.getElementById("solution6").innerHTML = "Moment (M1) = " + M_1 + " lb*ft";
+    }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Continuous Beams
+{% endblock %}
+
+{% block main %}
+
+<br>
+
+<div class = heading>
+    <h4>Continuous Beams</h4>
+    <p>Select a loading diagram to be directed to the appropriate calculations.</p>
+</div>
+
+<div class = "table">
+    <div class="row">
+        <a href="/continuous1">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/26 - Continuous - Uniform Load on One Span.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniform Load on One Span</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/continuous2">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/27 - Continuous - Concentrated Load at Center of One Span.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Center of One Span</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/continuous3">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/28 - Continuous - Concentrated Load at Any Point.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Concentrated Load at Any Point</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row">
+        <a href="/continuous4">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/29 - Continuous - Uniformly Distributed Load.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/continuous5">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/30 - Continuous - Two Equal Concentrated Loads Symmetrically Placed.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Two Equal Concentrated Loads Symmetrically Placed</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/continuous6">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/31 - Continuous - Two Unequal Spans - Uniformly Distributed Load.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Two Unequal Spans - Uniformly Distributed Load</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row">
+        <a href="/continuous7">
+            <div class="column">
+                <div class="container">
+                    <img src="/static/32 - Continuous - Two Unequal Spans - Concentrated Load on Each Span Symmetrically Placed.jpg" alt="Avatar" class="image" width="250" height="200" display="inline-block">
+                    <div class="overlay">
+                        <div class="text">Two Unequal Spans - Concentrated Load on Each Span Symmetrically Placed</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

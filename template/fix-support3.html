@@ -1,0 +1,139 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Fix-Support Beams - 3
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Fixed at One End & Supported at the Other End</h3>
+<h4>Concentrated Load at Any Point</h4>
+
+<img src="/static/Image1-17.jpg" alt="Avatar" class="image2" width="300" height="400" display="inline-block">
+
+<br><br>
+
+<form>
+
+    <label for="P" class="inlinelabel">P=</label>
+    <input autofocus class="calc1" name="P" id="P" type="number">
+    <label for="P" class="inlinelabel">lb</label>
+
+    <br><br>
+
+    <label for="l" class="inlinelabel">l=</label>
+    <input class="calc1" name="l" id="l" type="number">
+    <label for="l" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="a" class="inlinelabel">a=</label>
+    <input class="calc1" name="a" id="a" type="number">
+    <label for="a" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="b" class="inlinelabel">b=</label>
+    <input class="calc1" name="b" id="b" type="number">
+    <label for="b" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="x" class="inlinelabel">x=</label>
+    <input class="calc1" name="x" id="x" type="number">
+    <label for="x" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="E" class="inlinelabel">E=</label>
+    <input class="calc1" name="E" id="E" type="number">
+    <label for="E" class="inlinelabel">psi</label>
+
+    <br><br>
+
+    <label for="I" class="inlinelabel">I=</label>
+    <input class="calc1" name="I" id="I" type="number">
+    <label for="I" class="inlinelabel">in^4</label>
+
+    <br><br>
+
+    <input type="button" onclick="calc_1()" value="Calculate">
+
+    <br><br>
+
+    <p id="solution1"></p>
+    <p id="solution2"></p>
+    <p id="solution3"></p>
+    <p id="solution4"></p>
+    <p id="solution5"></p>
+    <p id="solution6"></p>
+    <p id="solution7"></p>
+    <p id="solution8"></p>
+    <p id="solution9"></p>
+    <p id="solution10"></p>
+    <p id="solution11"></p>
+
+</form>
+
+<script>
+    // Pull values from user text input and calculate
+    function calc_1() {
+        var P=document.getElementById("P").value;
+        var l=document.getElementById("l").value;
+        var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        var x=document.getElementById("x").value;
+        var E=document.getElementById("E").value;
+        var I=document.getElementById("I").value;
+
+        var v_1=((P*Math.pow(b, 2))/(2*Math.pow(l, 3)))*(a+(2*l));
+        var V_1=v_1.toFixed(2);
+
+        var v_2=((P*a)/(2*Math.pow(l, 3)))*((3*Math.pow(l, 2))-(Math.pow(a, 2)));
+        var V_2=v_2.toFixed(2);
+
+        var m_1=v_1*a;
+        var M_1=m_1.toFixed(2);
+
+        var m_2=((P*a*b)/(2*Math.pow(l, 2)))*(a+l);
+        var M_2=m_2.toFixed(2);
+
+        var m_x1=v_1*x;
+        var M_x1=m_x1.toFixed(2);
+
+        var m_x2=(v_1*x)-(P*(x-a));
+        var M_x2=m_x2.toFixed(2);
+
+        var d_max1=((P*a*12)/(3*E*I))*((Math.pow(((Math.pow((l*12), 2))-(Math.pow((a*12), 2))), 3))/(Math.pow(((3*Math.pow((l*12), 2))-(Math.pow((a*12), 2))), 2)));
+        var D_max1=d_max1.toFixed(2);
+
+        var d_max2=((P*a*12*Math.pow((b*12), 2))/(6*E*I))*Math.sqrt((a*12)/((2*l*12)+(a*12)));
+        var D_max2=d_max2.toFixed(2);
+
+        var D_a=((P*Math.pow((a*12), 2)*Math.pow((b*12), 3))/(12*E*I*Math.pow((l*12), 3)))*((3*l*12)+(a*12));
+        var Delta_a=D_a.toFixed(2);
+
+        var d_x1=((P*x*12*Math.pow((b*12), 2))/(12*E*I*Math.pow((l*12), 3)))*((3*a*12*Math.pow((l*12), 2))-(2*l*12*Math.pow((x*12), 2))-(a*12*Math.pow((x*12), 2)));
+        var D_x1=d_x1.toFixed(2);
+
+        var d_x2=((P*a*12)/(12*E*I*Math.pow((l*12), 3)))*(Math.pow(((l*12)-(x*12)), 2))*((3*x*12*Math.pow((l*12), 2))-(x*12*Math.pow((a*12), 2))-(2*l*12*Math.pow((a*12), 2)));
+        var D_x2=d_x2.toFixed(2);
+
+        // Display Calculation Results
+        document.getElementById("solution1").innerHTML = "Shear (V1) = " + V_1 + " lbs";
+        document.getElementById("solution2").innerHTML = "Shear (V2) = " + V_2 + " lbs";
+        document.getElementById("solution3").innerHTML = "Moment (M1, at point of load) = " + M_1 + " lb*ft";
+        document.getElementById("solution4").innerHTML = "Moment (M2, at fixed end) = " + M_2 + " lb*ft";
+        document.getElementById("solution5").innerHTML = "Moment at x (when x < a) = " + M_x1 + " lb*ft";
+        document.getElementById("solution6").innerHTML = "Moment at x (when x > a) = " + M_x2 + " lb*ft";
+        document.getElementById("solution7").innerHTML = "Max Deflection (when a < .414l) = " + D_max1 + " in";
+        document.getElementById("solution8").innerHTML = "Max Deflection (when a > .414l) = " + D_max2 + " in";
+        document.getElementById("solution9").innerHTML = "Deflection at a (at point of load) = " + Delta_a + " in";
+        document.getElementById("solution10").innerHTML = "Deflection at x (when x < a) = " + D_x1 + " in";
+        document.getElementById("solution11").innerHTML = "Deflection at x (when x > a) = " + D_x2 + " in";
+    }
+</script>
+
+
+{% endblock %}

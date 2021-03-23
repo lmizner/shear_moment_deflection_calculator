@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Continuous - 6
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Continuous Beam</h3>
+<h4>Two Equal Spans - Uniformly Distributed Load</h4>
+
+<img src="/static/Image1-31.jpg" alt="Avatar" class="image2" width="300" height="400" display="inline-block">
+
+<br><br>
+
+<form>
+
+    <label for="w" class="inlinelabel">w=</label>
+    <input autofocus class="calc1" name="w" id="w" type="number">
+    <label for="w" class="inlinelabel">lb/ft</label>
+
+    <br><br>
+
+    <label for="l_1" class="inlinelabel">l_1=</label>
+    <input class="calc1" name="l_1" id="l_1" type="number">
+    <label for="l_1" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="l_2" class="inlinelabel">l_2=</label>
+    <input class="calc1" name="l_2" id="l_2" type="number">
+    <label for="l_2" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="x_1" class="inlinelabel">x_1=</label>
+    <input class="calc1" name="x_1" id="x_1" type="number">
+    <label for="x_1" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="x_2" class="inlinelabel">x_2=</label>
+    <input class="calc1" name="x_2" id="x_2" type="number">
+    <label for="x_2" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <input type="button" onclick="calc_1()" value="Calculate">
+
+    <br><br>
+
+    <p id="solution1"></p>
+    <p id="solution2"></p>
+    <p id="solution3"></p>
+    <p id="solution4"></p>
+    <p id="solution5"></p>
+    <p id="solution6"></p>
+    <p id="solution7"></p>
+    <p id="solution8"></p>
+    <p id="solution9"></p>
+    <p id="solution10"></p>
+
+</form>
+
+<script>
+    // Pull values from user text input and calculate
+    function calc_1() {
+        var w=document.getElementById("w").value;
+        var l_1=document.getElementById("l_1").value;
+        var l_2=document.getElementById("l_2").value;
+        var x_1=document.getElementById("x_1").value;
+        var x_2=document.getElementById("x_2").value;
+
+
+        var m_1=(-((w*Math.pow(l_2, 3))+(w*Math.pow(l_1, 3)))/(8*(l_1+l_2)));
+        var M_1=m_1.toFixed(2);
+
+        var r_1=(m_1/l_1)+((w*l_1)/2);
+        var R_1=r_1.toFixed(2);
+
+        var r_3=(m_1/l_2)+((w*l_2)/2);
+        var R_3=r_3.toFixed(2);
+
+        var r_2=(w*l_1)+(w*l_2)-r_1-r_3;
+        var R_2=r_2.toFixed(2);
+
+        var v_1=r_1;
+        var V_1=v_1.toFixed(2);
+
+        var v_2=(w*l_1)-r_1;
+        var V_2=v_2.toFixed(2);
+
+        var v_3=(w*l_2)-r_3;
+        var V_3=v_3.toFixed(2);
+
+        var v_4=r_3;
+        var V_4=v_4.toFixed(2);
+
+        var m_x1=(r_1*x_1)-((w*Math.pow(x_1, 2))/2);
+        var M_x1=m_x1.toFixed(2);
+
+        var m_x2=(r_3*x_2)-((w*Math.pow(x_2, 2))/2);
+        var M_x2=m_x2.toFixed(2);
+
+        // Display Calculation Results
+        document.getElementById("solution1").innerHTML = "Shear (R1) = " + R_1 + " lbs";
+        document.getElementById("solution2").innerHTML = "Shear (R2) = " + R_2 + " lbs";
+        document.getElementById("solution3").innerHTML = "Shear (R3) = " + R_3 + " lbs";
+        document.getElementById("solution4").innerHTML = "Shear (V1) = " + V_1 + " lbs";
+        document.getElementById("solution5").innerHTML = "Shear (V2) = " + V_2 + " lbs";
+        document.getElementById("solution6").innerHTML = "Shear (V3) = " + V_3 + " lbs";
+        document.getElementById("solution7").innerHTML = "Shear (V4) = " + V_4 + " lbs";
+        document.getElementById("solution8").innerHTML = "Moment (M1) = " + M_1 + " lb*ft";
+        document.getElementById("solution9").innerHTML = "Moment at x1 = " + M_x1 + " lb*ft";
+        document.getElementById("solution10").innerHTML = "Moment at x2 = " + M_x2 + " lb*ft";
+    }
+</script>
+
+
+{% endblock %}

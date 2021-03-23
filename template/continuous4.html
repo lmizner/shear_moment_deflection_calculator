@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Continuous - 4
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Continuous Beam</h3>
+<h4>Two Equal Spans - Uniformly Distributed Load</h4>
+
+<img src="/static/Image1-29.jpg" alt="Avatar" class="image2" width="300" height="400" display="inline-block">
+
+<br><br>
+
+<form>
+
+    <label for="w" class="inlinelabel">w=</label>
+    <input autofocus class="calc1" name="w" id="w" type="number">
+    <label for="w" class="inlinelabel">lb/ft</label>
+
+    <br><br>
+
+    <label for="l" class="inlinelabel">l=</label>
+    <input class="calc1" name="l" id="l" type="number">
+    <label for="l" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="E" class="inlinelabel">E=</label>
+    <input class="calc1" name="E" id="E" type="number">
+    <label for="E" class="inlinelabel">psi</label>
+
+    <br><br>
+
+    <label for="I" class="inlinelabel">I=</label>
+    <input class="calc1" name="I" id="I" type="number">
+    <label for="I" class="inlinelabel">in^4</label>
+
+    <br><br>
+
+    <input type="button" onclick="calc_1()" value="Calculate">
+
+    <br><br>
+
+    <p id="solution1"></p>
+    <p id="solution2"></p>
+    <p id="solution3"></p>
+    <p id="solution4"></p>
+    <p id="solution5"></p>
+    <p id="solution6"></p>
+
+</form>
+
+<script>
+    // Pull values from user text input and calculate
+    function calc_1() {
+        var w=document.getElementById("w").value;
+        var l=document.getElementById("l").value;
+        var E=document.getElementById("E").value;
+        var I=document.getElementById("I").value;
+
+        var r_1=(3*w*l)/8;
+        var R_1=r_1.toFixed(2);
+
+        var r_2=(10*w*l)/8;
+        var R_2=r_2.toFixed(2);
+
+        var v_2=(5*w*l)/8;
+        var V_2=v_2.toFixed(2);
+
+        var m_1=(w*Math.pow(l, 2))/8;
+        var M_1=m_1.toFixed(2);
+
+        var m_2=((9*w*Math.pow(l, 2))/128);
+        var M_2=m_2.toFixed(2);
+
+        var d_max=(((w/12)*Math.pow((l*12), 4))/(185*E*I));
+        var D_max=d_max.toFixed(2);
+
+        // Display Calculation Results
+        document.getElementById("solution1").innerHTML = "Shear (R1) = " + R_1 + " lbs";
+        document.getElementById("solution2").innerHTML = "Shear (R2) = " + R_2 + " lbs";
+        document.getElementById("solution3").innerHTML = "Shear (V2) = " + V_2 + " lbs";
+        document.getElementById("solution4").innerHTML = "Moment (M1) = " + M_1 + " lb*ft";
+        document.getElementById("solution5").innerHTML = "Moment (M2) = " + M_2 + " lb*ft";
+        document.getElementById("solution6").innerHTML = "Max Deflection = " + D_max + " in";
+    }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Cantilever Beams - 2
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Cantilever Beams</h3>
+<h4>Concentrated Load at Free End</h4>
+
+<img src="/static/Image1-13.jpg" alt="Avatar" class="image2" width="300" height="400" display="inline-block">
+
+<br><br>
+
+<form>
+
+    <label for="P" class="inlinelabel">P=</label>
+    <input autofocus class="calc1" name="P" id="P" type="number">
+    <label for="P" class="inlinelabel">lb</label>
+
+    <br><br>
+
+    <label for="l" class="inlinelabel">l=</label>
+    <input class="calc1" name="l" id="l" type="number">
+    <label for="l" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="x" class="inlinelabel">x=</label>
+    <input class="calc1" name="x" id="x" type="number">
+    <label for="x" class="inlinelabel">ft</label>
+
+    <br><br>
+
+    <label for="E" class="inlinelabel">E=</label>
+    <input class="calc1" name="E" id="E" type="number">
+    <label for="E" class="inlinelabel">psi</label>
+
+    <br><br>
+
+    <label for="I" class="inlinelabel">I=</label>
+    <input class="calc1" name="I" id="I" type="number">
+    <label for="I" class="inlinelabel">in^4</label>
+
+    <br><br>
+
+    <input type="button" onclick="calc_1()" value="Calculate">
+
+    <br><br>
+
+    <p id="solution1"></p>
+    <p id="solution2"></p>
+    <p id="solution3"></p>
+    <p id="solution4"></p>
+    <p id="solution5"></p>
+
+</form>
+
+<script>
+    // Pull values from user text input and calculate
+    function calc_1() {
+        var P=document.getElementById("P").value;
+        var l=document.getElementById("l").value;
+        var x=document.getElementById("x").value;
+        var E=document.getElementById("E").value;
+        var I=document.getElementById("I").value;
+
+        var v=P*1;
+        var V=v.toFixed(2);
+
+        var m_max=P*l;
+        var M_max=m_max.toFixed(2);
+
+        var m_x=P*x;
+        var M_x=m_x.toFixed(2);
+
+        var D_max=(P*Math.pow((l*12), 3))/(3*E*I);
+        var Delta_max=D_max.toFixed(2);
+
+        var D_x=(P/(6*E*I))*((2*Math.pow((l*12), 3))-(3*x*12*Math.pow((l*12), 2))+(Math.pow((x*12), 3)));
+        var Delta_x=D_x.toFixed(2);
+
+        // Display Calculation Results
+        document.getElementById("solution1").innerHTML = "Shear = " + V + " lbs";
+        document.getElementById("solution2").innerHTML = "Max Moment (at fixed end) = " + M_max + " lb*ft";
+        document.getElementById("solution3").innerHTML = "Moment at x = " + M_x + " lb*ft";
+        document.getElementById("solution4").innerHTML = "Max Deflection (at free end) = " + Delta_max + " in";
+        document.getElementById("solution5").innerHTML = "Deflection at x = " + Delta_x + " in";
+    }
+</script>
+
+
+{% endblock %}
